@@ -78,4 +78,8 @@ export default HomeScreen() {
         setValor(item.valor);           //Preenche valor
         setEditandoId(item.id);         //Armazena o ID
     };
+
+    //Cáluculo do valor de gastos
+    const totalGasto = gastos.reduce((acc, item) => acc + parseFloat(item.valor), 0) //soma valores
+    .toFixed(2); //Formata com 2 casas decimais
 }
