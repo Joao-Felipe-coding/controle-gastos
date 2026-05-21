@@ -79,7 +79,24 @@ export default HomeScreen() {
         setEditandoId(item.id);         //Armazena o ID
     };
 
-    //Cáluculo do valor de gastos
+    //Cálculo do valor de gastos
     const totalGasto = gastos.reduce((acc, item) => acc + parseFloat(item.valor), 0) //soma valores
     .toFixed(2); //Formata com 2 casas decimais
+
+    //retorna os elementos viseuais da interface
+    return(
+        <View style={styles.container}>
+            <Text style={styles.title}>Controle de Gastos</Text>
+        </View>
+    )
 }
+
+//Estilos aplicados à interface
+const styles = StyleSheet.create({
+    container: {
+
+    },
+    title: {
+
+    }
+});
