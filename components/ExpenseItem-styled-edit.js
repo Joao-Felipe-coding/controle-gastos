@@ -71,4 +71,11 @@ export default HomeScreen() {
             setValor('');
         }
     };
+
+    //Função para preencher o formulário com os dados do item que será editado
+    const editarGssto = (item) => {
+        setDescricao(item.descricao);   //Preenche descrição
+        setValor(item.valor);           //Preenche valor
+        setEditandoId(item.id);         //Armazena o ID
+    };
 }
