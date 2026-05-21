@@ -20,7 +20,7 @@ export default HomeScreen() {
     const [descricao, setDescricao] = useState('');   //descricao do gasto
     const [valor, setValor] = useState('');           //valor do gasto
     const [gastos, setGastos] = useState([]);         //lista de gastos
-    const [editanoId, setEditanoId] = useState(null); //Id do item sendo editado
+    const [editandoId, setEditandoId] = useState(null); //Id do item sendo editado
 
     //função para adicionar um novo gasto ou atualizar um existente
     const adicionarOuAtualizarGasto = () => {
@@ -29,6 +29,37 @@ export default HomeScreen() {
             Alert.alert('Erro', 'Preencha todos os campos');
             return;
         }
-    }
+
+        //Validação para verificar valor numérico no campo valor
+        if(isNaN(parseFloat(valor))){
+            Alert.alert('Erro', 'Digite um valor numérico');
+            return;
+        }
+
+
+        if(editandoId){
+            const gastosAtualizados = gastos.map(item=>
+            //Atualiza o gasto existente com base no ID
+            item.id === editandoId
+            ? {...item, descricao, valor: parseFloat(valor).toFixed(2)} //atualiza valores
+            : item
+        );
+        setGastos(gastosAtualizados);   //Atualiza o estado
+        setEditandoId(null);            //Sai do modo de edição
+        } else {
+            //criação de um novo gasto
+            const novoGasto = {
+                id: Date.now().toString(),  //Gera um ID único
+                decricao,                   //descrição informada
+                valor: parseFloat(valor).toFixed(2) //formata o valor
+            };
+            setGastos([...gastos, novoGasto]); //Adiciona à lista
+        }
+        //Limpar os campos do formiilário
+        setDescricao('');
+        setValor('');
+    };
+
+    //Função para remover gastos da lista
 
 }
