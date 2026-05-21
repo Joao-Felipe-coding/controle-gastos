@@ -61,5 +61,14 @@ export default HomeScreen() {
     };
 
     //Função para remover gastos da lista
+    const removerGasto = (id) => {
+        setGastos(gostos.filter(item => item.id !== id)); //remove o item pelo ID
 
+        //Verifica se o item a ser removido está sendo editado. Se estover, cancela a operação
+        id(editandoId === id){
+            setEditandoId(null); //Sai do modo de edição
+            setDescricao('');
+            setValor('');
+        }
+    };
 }
