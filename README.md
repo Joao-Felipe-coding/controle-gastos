@@ -1,60 +1,25 @@
 # Controle de Gastos
 
-Aplicativo mobile simples em React Native (Expo) para registrar e acompanhar despesas pessoais.
+Aplicativo mobile em React Native (Expo) para registrar e acompanhar despesas pessoais.
 
-## Recursos
+Como executar:
 
-- Registrar despesas com valor, categoria e data
-- Listar despesas por dia/mês
-- Excluir e editar itens de despesa
+Pré-requisitos:
 
-## Requisitos
-
-- Node.js (>= 14)
+- Node.js
 - npm ou yarn
-- Expo CLI (opcional) e Expo Go em um dispositivo móvel ou emulador Android/iOS
+- Expo Go (ou emulador Android/iOS)
 
-## Instalação
-
-1. Instale dependências:
+Instalação e execução:
 
 ```bash
 npm install
-# ou
-yarn install
-```
-
-2. Inicie o servidor de desenvolvimento (Expo):
-
-```bash
 npm start
 # ou
+yarn install
 yarn start
 ```
 
-3. Abra no seu dispositivo ou emulador usando o QR code do Expo Go.
+Após iniciar, abra o aplicativo no Expo Go usando o QR code exibido.
 
-## Scripts úteis
-
-- `npm start` / `yarn start` — inicia o Metro/Expo
-- `npm run android` / `yarn android` — tenta abrir no emulador Android
-- `npm run ios` / `yarn ios` — tenta abrir no emulador iOS (macOS)
-- `npm run web` / `yarn web` — abre a versão web (quando suportado)
-
-## Estrutura do projeto
-
-- `App.js` — ponto de entrada da aplicação
-- `components/` — componentes reutilizáveis
-- `assets/` — imagens e recursos estáticos
-
-## Contribuições
-
-Pull requests são bem-vindos. Abra uma issue antes de grandes mudanças.
-
-## Contato
-
-Criado por você. Para dúvidas ou sugestões, abra uma issue.
-
-## Licença
-
-MIT — sinta-se à vontade para usar e modificar este projeto.
+O projeto contém a interface principal em `App.js` e componentes em `components/`.
