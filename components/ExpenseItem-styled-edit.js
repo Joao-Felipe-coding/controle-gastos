@@ -1,7 +1,7 @@
 //importa React e o hook useState para controle de estado
 import React, { useState } from "react";
 import { Alert, TouchableOpacity } from "react-native";
-import { FlatList, TextInput, View } from "react-native-web";
+import { Button, FlatList, TextInput, View } from "react-native-web";
 
 // importa os componentes nativos para contrulção de interface
 import {
@@ -105,6 +105,39 @@ export default HomeScreen() {
         onChangeText={setValor}
         />
 
+        {/*Botão para adicionar o valor à lista*/}
+        <TouchableOpacity style={styles.button} onPress={adicionarOuAtualizarGasto}>
+            <Text style={styles.buttonText}>
+                {editandoId ? 'Atualizar Gasto' : 'Adicionar Gasto'}
+            </Text>
+        </TouchableOpacity>
+
+        {/*lista de gastos exibidos na FlatList */}
+        <FlatList
+        data={gastos}                   //Fonte de dados
+        keyExtractor={item => item.id}  // Identificador único
+        renderItem={({ item }) => (
+            <View style={styles.itemContainer}>
+                {/* Exibie a descrição e valor */}
+                <Text style={styles.item}>
+                    {item.descricao} - R$ {item.valor}
+                </Text>
+           
+            {/* Ações de edição e remoção */}
+                <View style={styles.actions}>
+                    <TouchableOpacity onPress={() => editarGasto(item)} style={styles.editButton}>
+                        <Text style={styles.actionText}>
+                            Editar
+                        </Text>
+                    </TouchableOpacity>
+
+                </View>
+
+            </View>
+        )}
+       
+        />
+
         </View>
     );
 }
@@ -119,5 +152,21 @@ const styles = StyleSheet.create({
     },
     input: {
 
+    },
+    button{
+
+    },
+    buttonText{
+
+    },
+    actions: {
+
+    },
+    editButton: {
+
+    },
+    actionText: {
+
     }
+    
 });
